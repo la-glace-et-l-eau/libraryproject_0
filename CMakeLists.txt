@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 include(cmake/prelude.cmake)
-
+include(cmake/ConfigureMiniz.cmake)
 project(
     libraryproject
     VERSION 0.1.0
@@ -33,6 +33,7 @@ target_compile_features(libraryproject_libraryproject INTERFACE cxx_std_20)
 
 find_package(fmt REQUIRED)
 target_link_libraries(libraryproject_libraryproject INTERFACE fmt::fmt)
+target_link_libraries(libraryproject_libraryproject INTERFACE miniz)
 
 # ---- Install rules ----
 
@@ -61,3 +62,5 @@ elseif(NOT PROJECT_IS_TOP_LEVEL)
 endif()
 
 include(cmake/dev-mode.cmake)
+
+
